@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRAND SAFE — помощь при покупке подделки</title>
+<meta name="description" content="Справочный сайт для покупателей в Казахстане: что делать, если магазин или ИП продал подделку брендовой вещи под видом оригинала, — план действий и шаблон претензии по Закону РК «О защите прав потребителей».">
+<!-- Проверка кода (версия 9, 10.11.2026): нет форм, полей ввода текста, mailto:/tel:, внешних скриптов, шрифтов, iframe и хранилищ; внешние ссылки только на adilet.zan.kz и eotinish.kz. -->
+<style>
+/* ===== Цвета и шрифты (только системные шрифты) ===== */
+:root{
+  --bg:#FBF1F4;        /* очень светлый розовый фон */
+  --paper:#FFFFFF;     /* карточки */
+  --ink:#3A1F2B;       /* основной текст: тёмный сливово-коричневый */
+  --muted:#6E4E5B;     /* второстепенный текст */
+  --line:#EBD3DB;      /* линии и рамки */
+  --rose:#A63F64;      /* пыльная роза: кнопки, заголовки разделов */
+  --rose-soft:#F8DDE7; /* светлая роза: подложки */
+  --berry:#7E1D45;     /* тёмная малина: акценты */
+  --alert:#C4321C;     /* красный: только предупреждения и штамп FAKE */
+  --alert-soft:#FBE6DF;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+a{color:var(--berry)}
+:focus-visible{outline:3px solid var(--berry);outline-offset:2px}
+
+/* ===== Header и меню ===== */
+.site-header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.logo{font-family:var(--serif);font-weight:700;font-size:22px;letter-spacing:.08em;color:var(--ink);text-decoration:none;min-height:44px;display:flex;align-items:center}
+.logo span{color:var(--rose)}
+.menu{display:flex;flex-wrap:wrap;gap:4px;margin:0;padding:0;list-style:none}
+.menu a{display:flex;align-items:center;min-height:44px;padding:0 12px;border-radius:22px;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none}
+.menu a:hover{background:var(--rose-soft);color:var(--berry)}
+
+/* ===== Общие стили разделов ===== */
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+.label{margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--berry)}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;margin:0}
+h2{font-size:32px;color:var(--rose);margin-bottom:16px}
+h3{font-size:21px;margin-bottom:8px}
+p{margin:0 0 12px;max-width:68ch}
+.lead{font-size:19px;color:var(--muted)}
+.law{display:inline-block;font-size:14px;font-weight:700;color:var(--berry);background:var(--rose-soft);padding:1px 8px;border-radius:4px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:0;border-radius:8px;background:var(--rose);color:#fff;font-family:var(--sans);font-size:16px;font-weight:700;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--berry)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* ===== 1. Главная ===== */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:46px;margin-bottom:16px}
+.hero .btn{margin-top:12px}
+/* бирка подлинности с пунктирной прострочкой */
+.tag{position:relative;background:var(--paper);border-radius:14px;padding:30px 26px 26px;box-shadow:0 10px 30px -18px rgba(58,31,43,.45)}
+.tag::before{content:"";position:absolute;inset:9px;border:2px dashed var(--rose);border-radius:9px;opacity:.6;pointer-events:none}
+.tag .hole{position:absolute;top:16px;right:18px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:1.5px solid var(--line)}
+.tag dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:14px 0 0;font-size:15px}
+.tag dt{color:var(--muted)}
+.tag dd{margin:0;font-weight:600}
+.stamp{display:inline-block;margin-top:16px;font-family:var(--serif);font-weight:700;font-size:18px;letter-spacing:.15em;color:var(--alert);border:3px solid var(--alert);border-radius:6px;padding:4px 12px;transform:rotate(-4deg)}
+.small{font-size:14px;color:var(--muted);margin-top:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0 0;padding:0;list-style:none}
+.steps li{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px}
+.steps b{display:block;color:var(--berry);font-size:14px;margin-bottom:4px}
+
+/* ===== 2. Проверь ситуацию: помощник ===== */
+.helper{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;margin-top:20px}
+.q{border:0;margin:0 0 22px;padding:0;min-width:0}
+.q legend{font-weight:700;font-size:18px;margin-bottom:10px;padding:0}
+.q legend span{color:var(--berry);margin-right:6px}
+.q .hint{font-size:14px;color:var(--muted);margin:-4px 0 8px}
+.opt{display:flex;align-items:center;gap:12px;min-height:48px;padding:10px 14px;margin-bottom:8px;background:var(--paper);border:1.5px solid var(--line);border-radius:8px;cursor:pointer;font-size:16px}
+.opt:has(input:checked){border-color:var(--rose);background:var(--rose-soft)}
+.opt input{width:20px;height:20px;flex:0 0 auto;accent-color:var(--rose);margin:0}
+.q.missing legend{color:var(--alert)}
+.q.missing .opt{border-color:var(--alert)}
+.helper-buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn-light{background:transparent;color:var(--ink);border:1.5px solid var(--rose)}
+.btn-light:hover{background:var(--rose-soft);color:var(--ink)}
+.result{background:var(--paper);border:2px dashed var(--rose);border-radius:12px;padding:24px;min-width:0}
+.result h3{color:var(--rose)}
+.result .empty{color:var(--muted);margin:0}
+.plan{margin:12px 0 0;padding-left:22px;display:grid;gap:12px}
+.plan li{padding-left:4px}
+.plan li b{display:block}
+.error{background:var(--alert-soft);border-left:4px solid var(--alert);border-radius:6px;padding:14px 16px}
+.error p{margin:0 0 6px}
+.error ul{margin:0;padding-left:20px}
+.stop{background:var(--alert-soft);border-left:4px solid var(--alert);border-radius:6px;padding:14px 16px;margin-top:12px}
+
+/* ===== 3. Права покупателя ===== */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card p:last-child{margin-bottom:0}
+.warn{background:var(--alert-soft);border-left:4px solid var(--alert);border-radius:6px;padding:14px 16px;margin-top:20px}
+.warn p{margin:0}
+
+/* ===== 4. Шаблон претензии ===== */
+.claim-tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:20px 0}
+.status{font-weight:600;color:var(--berry)}
+.letter mark{background:var(--rose-soft);color:var(--berry);padding:0 3px;border-radius:3px;font-weight:600}
+.claim-note{background:var(--paper);border-left:4px solid var(--rose);border-radius:6px;padding:12px 16px;margin:0 0 16px;max-width:760px;font-size:16px}
+.claim-note.ready{border-left-color:var(--berry)}
+.letter.stopped{font-family:var(--sans);white-space:normal}
+.letter{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:28px;white-space:pre-wrap;font-family:var(--serif);font-size:16px;line-height:1.7;max-width:760px;overflow-wrap:anywhere}
+
+/* ===== 5. Источники ===== */
+.sources{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.sources li{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.sources p{margin:6px 0 0;font-size:15px;color:var(--muted)}
+.sources .meta-line{margin:2px 0 0;font-size:15px;color:var(--ink)}
+.art{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.art li{background:transparent;border:0;padding:0 0 0 14px;border-left:3px solid var(--rose-soft);border-radius:0;font-size:15px}
+.art b{color:var(--berry)}
+/* таблица «Что сказано на сайте — где это в законе» */
+.map-title{font-family:var(--serif);font-size:22px;margin:32px 0 6px}
+.map{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:15px}
+.map th{background:var(--rose-soft);color:var(--berry);text-align:left;padding:10px 14px;font-size:14px}
+.map td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+.map td:last-child{white-space:nowrap;font-weight:700;color:var(--berry)}
+.map .grp td{background:var(--bg);font-weight:700;color:var(--ink);white-space:normal}
+@media (max-width:600px){
+  .map thead{display:none}
+  .map,.map tbody,.map tr,.map td{display:block;width:100%}
+  .map tr{border-top:1px solid var(--line);padding:10px 14px}
+  .map td{border:0;padding:0}
+  .map td:last-child{white-space:normal;margin-top:4px}
+  .map td:last-child::before{content:"Где в законе: ";font-weight:400;color:var(--muted)}
+  .map .grp td::before{content:none}
+}
+
+/* ===== Footer ===== */
+.site-footer{background:var(--ink);color:#F5E6EB;padding:32px 0}
+.site-footer p{margin:0 0 8px}
+.site-footer .disclaimer{font-weight:700;font-size:17px}
+.site-footer .meta{font-size:14px;color:#D9BCC8}
+
+/* ===== Телефон ===== */
+@media (max-width:800px){
+  .hero{grid-template-columns:1fr}
+  .hero h1{font-size:34px}
+  .steps,.cards,.helper{grid-template-columns:1fr}
+  h2{font-size:27px}
+  section{padding:40px 0}
+}
+/* ===== Телефон до 600 px: компактная шапка, меню в одну строку ===== */
+@media (max-width:600px){
+  html{scroll-padding-top:100px}
+  .header-inner{flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:0;padding-top:2px;padding-bottom:2px}
+  .logo{font-size:18px}
+  .site-header nav{min-width:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -16px;padding:0 16px}
+  .site-header nav::-webkit-scrollbar{display:none}
+  .menu{flex-wrap:nowrap;width:max-content}
+  .menu a{white-space:nowrap}
+  /* пустой блок плана до нажатия кнопки не показываем */
+  .result.is-empty{display:none}
+}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .menu a{padding:0 9px;font-size:14px}
+  .letter{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#home">BRAND&nbsp;<span>SAFE</span></a>
+    <nav aria-label="Разделы сайта">
+      <ul class="menu">
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#check">Проверь ситуацию</a></li>
+        <li><a href="#rights">Права покупателя</a></li>
+        <li><a href="#claim">Претензия</a></li>
+        <li><a href="#sources">Источники</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== 1. Главная ===== -->
+<section id="home">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <p class="label">BRAND SAFE: помощь при покупке подделки</p>
+        <h1>Купили оригинал, а это подделка?</h1>
+        <p class="lead">Если магазин или ИП продал вам подделку брендовой вещи и выдал её за оригинал, у вас есть права по законодательству Республики Казахстан. Здесь простыми словами объясняем, что делать, и помогаем подготовить претензию продавцу.</p>
+        <a class="btn" href="#check">Мне продали подделку. Что делать?</a>
+      </div>
+      <div class="tag">
+        <span class="hole" aria-hidden="true"></span>
+        <p class="label" style="margin:0">Пример ситуации (вымышленный)</p>
+        <h3>Сумка из шоурума</h3>
+        <dl>
+          <dt>Покупатель</dt><dd>Айым, студентка</dd>
+          <dt>Продавец</dt><dd>ИП, шоурум в торговом центре</dd>
+          <dt>На ценнике</dt><dd>«Оригинал»</dd>
+          <dt>Проверка</dt><dd>Бутик бренда: не оригинал</dd>
+        </dl>
+        <span class="stamp">FAKE</span>
+        <p class="small">Продавец написал на ценнике «оригинал», а это не так. Это недостоверная информация о товаре.</p>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><b>Шаг 1</b><h3>Ответьте на вопросы</h3><p class="small" style="margin:0">Где купили, что обещал продавец, какие есть доказательства.</p></li>
+      <li><b>Шаг 2</b><h3>Получите план</h3><p class="small" style="margin:0">Что сохранить, что требовать и куда обращаться.</p></li>
+      <li><b>Шаг 3</b><h3>Подготовьте претензию</h3><p class="small" style="margin:0">Скопируйте шаблон и заполните пропуски сами.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 2. Проверь ситуацию: пошаговый помощник ===== -->
+<section id="check">
+  <div class="wrap">
+    <p class="label">Раздел 2</p>
+    <h2>Проверь ситуацию</h2>
+    <p class="lead">Ответьте на пять вопросов и нажмите «Получить план действий». Ответы никуда не отправляются и не сохраняются.</p>
+    <div class="helper">
+      <div id="questions">
+        <fieldset class="q" id="q1">
+          <legend><span>1.</span>Где куплена вещь?</legend>
+          <label class="opt"><input type="radio" name="where" value="shop" id="q1a"> В бутике, магазине или шоуруме</label>
+          <label class="opt"><input type="radio" name="where" value="online" id="q1b"> В интернет-магазине или у продавца на маркетплейсе</label>
+          <label class="opt"><input type="radio" name="where" value="private" id="q1c"> У частного лица (OLX, Instagram без ИП, с рук)</label>
+        </fieldset>
+        <fieldset class="q" id="q2">
+          <legend><span>2.</span>Утверждал ли продавец, что это оригинал?</legend>
+          <label class="opt"><input type="radio" name="said" value="written" id="q2a"> Да, письменно (ценник, описание, чек, переписка)</label>
+          <label class="opt"><input type="radio" name="said" value="oral" id="q2b"> Да, устно</label>
+          <label class="opt"><input type="radio" name="said" value="no" id="q2c"> Нет</label>
+        </fieldset>
+        <fieldset class="q" id="q3">
+          <legend><span>3.</span>Какие доказательства у вас есть?</legend>
+          <p class="hint">Можно выбрать несколько или ни одного.</p>
+          <label class="opt"><input type="checkbox" name="proof" value="receipt" id="q3a"> Чек или выписка об оплате</label>
+          <label class="opt"><input type="checkbox" name="proof" value="ad" id="q3b"> Скриншот объявления или фото ценника</label>
+          <label class="opt"><input type="checkbox" name="proof" value="chat" id="q3c"> Переписка с продавцом</label>
+          <label class="opt"><input type="checkbox" name="proof" value="photo" id="q3d"> Фото вещи, бирок и упаковки</label>
+        </fieldset>
+        <fieldset class="q" id="q4">
+          <legend><span>4.</span>Что известно о подлинности?</legend>
+          <label class="opt"><input type="radio" name="auth" value="suspect" id="q4a"> Только подозрение</label>
+          <label class="opt"><input type="radio" name="auth" value="confirmed" id="q4b"> Есть письменное заключение специалиста или бутика бренда</label>
+        </fieldset>
+        <fieldset class="q" id="q5">
+          <legend><span>5.</span>Вы обращались к продавцу?</legend>
+          <label class="opt"><input type="radio" name="contact" value="no" id="q5a"> Ещё нет</label>
+          <label class="opt"><input type="radio" name="contact" value="wait" id="q5b"> Претензия отправлена, жду ответа</label>
+          <label class="opt"><input type="radio" name="contact" value="refused" id="q5c"> Продавец отказал или не ответил за 10 календарных дней</label>
+        </fieldset>
+        <div class="helper-buttons">
+          <button class="btn" type="button" id="planBtn">Получить план действий</button>
+          <button class="btn btn-light" type="button" id="resetBtn">Начать заново</button>
+        </div>
+      </div>
+      <div class="result is-empty" id="result" aria-live="polite">
+        <h3>Ваш план действий</h3>
+        <p class="empty">Ответьте на вопросы и нажмите «Получить план действий». План появится здесь.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. Права покупателя ===== -->
+<section id="rights">
+  <div class="wrap">
+    <p class="label">Раздел 3</p>
+    <h2>Права покупателя</h2>
+    <p class="lead">Что говорит закон, простыми словами.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Кто защищён законом</h3>
+        <p><b>Потребитель</b> — человек, который покупает вещь для себя, семьи или дома, а не для бизнеса. <span class="law">ст. 1 п. 15</span></p>
+        <p><b>Продавец</b> — человек или компания, которые продают товар (например, ИП или ТОО). <span class="law">ст. 1 п. 10</span></p>
+        <p>Если вы купили вещь у частного лица, а не у продавца-предпринимателя, Закон «О защите прав потребителей» не применяется. В этом случае обратитесь к юристу.</p>
+      </div>
+      <div class="card">
+        <h3>Право на правду о товаре</h3>
+        <p>Вы имеете право на полную, достоверную и своевременную информацию о товаре и о продавце. <span class="law">ст. 10 п. 1</span></p>
+        <p>Продавец обязан сообщить, в том числе, название товара, его основные свойства, страну происхождения, цену и сведения о продавце или изготовителе. <span class="law">ст. 25 п. 1</span></p>
+      </div>
+      <div class="card">
+        <h3>Что можно требовать</h3>
+        <p>Если из-за неполной или недостоверной информации вы купили товар, который не обладает нужными вам свойствами, вы вправе <b>расторгнуть договор и потребовать возмещения убытков</b>. <span class="law">ст. 10 п. 2</span></p>
+        <p>Вещь, которую выдали за оригинал, а она оказалась подделкой, — как раз такой случай.</p>
+      </div>
+      <div class="card">
+        <h3>Как подать претензию</h3>
+        <p><b>Претензия</b> — письменное требование к продавцу. Её можно вручить лично или отправить заказным письмом с уведомлением о вручении. По электронной почте — только если продавец раньше сам указал свой адрес. <span class="law">ст. 42-4</span></p>
+        <p>Если продавец не согласен, он должен дать письменный ответ с объяснением причин в течение <b>десяти календарных дней</b> со дня получения претензии. <span class="law">ст. 42-4</span></p>
+      </div>
+      <div class="card">
+        <h3>Если продавец отказал или молчит</h3>
+        <p>Вы вправе обратиться в Комитет по защите прав потребителей Министерства торговли и интеграции РК или в его департамент в вашем регионе. Обращение можно подать через <a href="https://eotinish.kz" target="_blank" rel="noopener">eOtinish</a>. <span class="law">ст. 42-4</span></p>
+        <p>Также вы можете обратиться в суд: каждый человек имеет право на судебную защиту своих прав и свобод. <span class="law">Конституция, ст. 12 п. 2</span></p>
+      </div>
+      <div class="card">
+        <h3>Почему подделка — это серьёзно</h3>
+        <p>Конституция Республики Казахстан устанавливает: «Интеллектуальная собственность охраняется законом». Товарный знак бренда — это интеллектуальная собственность. <span class="law">Конституция, ст. 23 п. 2</span></p>
+      </div>
+    </div>
+    <div class="warn">
+      <p><b>Важно:</b> сайт не определяет, оригинальная ли вещь, и не гарантирует возврат денег. Чтобы подтвердить подделку, обратитесь в официальный бутик бренда или к специалисту.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. Шаблон претензии ===== -->
+<section id="claim">
+  <div class="wrap">
+    <p class="label">Раздел 4</p>
+    <h2>Шаблон претензии</h2>
+    <p class="lead">Скопируйте текст, замените всё, что в квадратных скобках, своими данными и передайте продавцу. Сохраните себе копию с отметкой о получении.</p>
+    <div class="claim-tools">
+      <button class="btn" type="button" id="copyBtn">Скопировать текст</button>
+      <span class="status" id="copyStatus" role="status"></span>
+    </div>
+    <p class="claim-note" id="claimNote" aria-live="polite">Это общий шаблон. Ответьте на вопросы в разделе 2, и текст подстроится под вашу ситуацию.</p>
+    <div class="letter" id="letter">Кому: [название продавца — ИП или ТОО]
+Адрес: [адрес продавца]
+От: [ваше ФИО]
+Контакты для ответа: [ваш телефон или e-mail]
+
+ПРЕТЕНЗИЯ
+
+[Дата покупки] я купил(а) в [название и адрес магазина или сайта] товар: [название, модель, цвет] за [сумма] тенге. Покупку подтверждает [чек / выписка об оплате].
+
+При продаже товар был заявлен как оригинальный: [где это указано — ценник, описание, чек, переписка].
+
+По заключению [кто проверял — бутик бренда или специалист] от [дата] товар не является оригинальной продукцией бренда [название бренда].
+
+Таким образом, мне была предоставлена недостоверная информация о товаре. На основании пункта 2 статьи 10 Закона Республики Казахстан «О защите прав потребителей» прошу расторгнуть договор купли-продажи и возместить мои убытки в размере [сумма] тенге.
+
+В случае несогласия прошу дать письменный мотивированный ответ в течение десяти календарных дней со дня получения претензии (статья 42-4 Закона РК «О защите прав потребителей»).
+
+Приложения:
+1. Копия чека или выписки об оплате.
+2. [Скриншот объявления или фото ценника.]
+3. [Копия заключения о подлинности.]
+
+[Дата]          [Подпись]</div>
+  </div>
+</section>
+
+<!-- ===== 5. Источники ===== -->
+<section id="sources">
+  <div class="wrap">
+    <p class="label">Раздел 5</p>
+    <h2>Источники</h2>
+    <p>Все нормы на сайте взяты только из этих актов. Ссылки ведут на официальную базу «Әділет» (adilet.zan.kz).</p>
+    <ul class="sources">
+      <li>
+        <b>Конституция Республики Казахстан</b>
+        <p class="meta-line">Вид акта: Конституция. Принята на республиканском референдуме 15 марта 2026 года. Действует с 1 июля 2026 года.</p>
+        <ul class="art">
+          <li><b>Ст. 12 п. 2</b> — каждый человек имеет право на судебную защиту своих прав и свобод.</li>
+          <li><b>Ст. 23 п. 2</b> — интеллектуальная собственность охраняется законом.</li>
+        </ul>
+        <p><a href="https://adilet.zan.kz/rus/docs/K2600000000" target="_blank" rel="noopener">Открыть текст на adilet.zan.kz</a></p>
+      </li>
+      <li>
+        <b>Закон Республики Казахстан «О защите прав потребителей»</b>
+        <p class="meta-line">Вид акта: Закон. Дата принятия: 4 мая 2010 года. Номер: № 274-IV. Редакция: с изменениями, внесёнными в том числе Законом РК от 19.06.2026 № 320-VIII.</p>
+        <ul class="art">
+          <li><b>Ст. 1 п. 10</b> — кто такой продавец: физическое или юридическое лицо, реализующее товар в соответствии с гражданским законодательством РК.</li>
+          <li><b>Ст. 1 п. 15</b> — кто такой потребитель: физическое лицо, которое приобретает товар для личного, семейного, домашнего или иного использования, не связанного с предпринимательской деятельностью.</li>
+          <li><b>Ст. 10 п. 1</b> — право потребителя на полную, достоверную и своевременную информацию о товаре и о продавце.</li>
+          <li><b>Ст. 10 п. 2</b> — если из-за неполной или недостоверной информации приобретён товар, не обладающий нужными свойствами, потребитель вправе расторгнуть договор и потребовать возмещения убытков.</li>
+          <li><b>Ст. 25 п. 1</b> — какую информацию о товаре обязан предоставить продавец (в том числе наименование, основные потребительские свойства, страну происхождения, цену, сведения о продавце или изготовителе).</li>
+          <li><b>Ст. 42-4</b> — претензия к продавцу: способы вручения, письменный мотивированный ответ в течение десяти календарных дней со дня получения, право обратиться в уполномоченный орган по защите прав потребителей.</li>
+        </ul>
+        <p><a href="https://adilet.zan.kz/rus/docs/Z100000274_" target="_blank" rel="noopener">Открыть текст на adilet.zan.kz</a></p>
+      </li>
+      <li>
+        <b>eOtinish</b>
+        <p class="meta-line">Портал для обращений в государственные органы, в том числе в Комитет по защите прав потребителей.</p>
+        <p><a href="https://eotinish.kz" target="_blank" rel="noopener">Открыть eotinish.kz</a></p>
+      </li>
+    </ul>
+
+    <h3 class="map-title">Что сказано на сайте — где это в законе</h3>
+    <p>Каждое утверждение из раздела «Права покупателя» и из помощника и норма, на которую оно опирается.</p>
+    <table class="map">
+      <thead><tr><th>Что сказано на сайте</th><th>Где это в законе</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="2">Раздел 3 «Права покупателя»</td></tr>
+        <tr><td>Потребитель — человек, который покупает вещь для себя, семьи или дома, а не для бизнеса.</td><td>Закон, ст. 1 п. 15</td></tr>
+        <tr><td>Продавец — человек или компания, которые продают товар.</td><td>Закон, ст. 1 п. 10</td></tr>
+        <tr><td>Вы имеете право на полную, достоверную и своевременную информацию о товаре и о продавце.</td><td>Закон, ст. 10 п. 1</td></tr>
+        <tr><td>Продавец обязан сообщить название товара, основные свойства, страну происхождения, цену, сведения о продавце или изготовителе.</td><td>Закон, ст. 25 п. 1</td></tr>
+        <tr><td>Если из-за недостоверной информации куплен товар без нужных свойств, можно расторгнуть договор и потребовать возмещения убытков.</td><td>Закон, ст. 10 п. 2</td></tr>
+        <tr><td>Претензию можно вручить лично или отправить заказным письмом с уведомлением; по e-mail — если продавец сам указал адрес.</td><td>Закон, ст. 42-4</td></tr>
+        <tr><td>При несогласии продавец даёт письменный ответ с объяснением причин в течение десяти календарных дней со дня получения претензии.</td><td>Закон, ст. 42-4</td></tr>
+        <tr><td>Если продавец отказал или молчит, можно обратиться в Комитет по защите прав потребителей (в том числе через eOtinish).</td><td>Закон, ст. 42-4</td></tr>
+        <tr><td>Можно обратиться в суд: каждый имеет право на судебную защиту своих прав и свобод.</td><td>Конституция, ст. 12 п. 2</td></tr>
+        <tr><td>Интеллектуальная собственность (в том числе товарный знак бренда) охраняется законом.</td><td>Конституция, ст. 23 п. 2</td></tr>
+        <tr class="grp"><td colspan="2">Раздел 2 «Проверь ситуацию» (помощник)</td></tr>
+        <tr><td>При покупке у частного лица Закон «О защите прав потребителей» не применяется: закон защищает потребителя в отношениях с продавцом-предпринимателем.</td><td>Закон, ст. 1 п. 10 и п. 15</td></tr>
+        <tr><td>Право расторгнуть договор возникает, если продавец дал недостоверную информацию; слова «это оригинал» нужно подтвердить.</td><td>Закон, ст. 10 п. 1 и п. 2</td></tr>
+        <tr><td>Направьте претензию: потребуйте расторгнуть договор и возместить убытки; вручите лично или заказным письмом.</td><td>Закон, ст. 10 п. 2; ст. 42-4</td></tr>
+        <tr><td>Дождитесь ответа: десять календарных дней со дня получения претензии.</td><td>Закон, ст. 42-4</td></tr>
+        <tr><td>Если отказали или не ответили — обращение в госорган через eOtinish.</td><td>Закон, ст. 42-4</td></tr>
+        <tr><td>Обращение в суд.</td><td>Конституция, ст. 12 п. 2</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px">Дата проверки содержания: 10.11.2026.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="disclaimer">Информация на сайте носит справочный характер и не заменяет консультацию юриста.</p>
+    <p class="meta">Содержание проверено по adilet.zan.kz: 10.11.2026</p>
+    <p class="meta">BRAND SAFE · учебный проект · 2026</p>
+  </div>
+</footer>
+
+<script>
+/* ===== Кнопка «Скопировать текст» ===== */
+document.getElementById('copyBtn').addEventListener('click', function () {
+  var letter = document.getElementById('letter');
+  var status = document.getElementById('copyStatus');
+  function selectText() {
+    var range = document.createRange();
+    range.selectNodeContents(letter);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    status.textContent = 'Текст выделен. Нажмите Ctrl+C, чтобы скопировать.';
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(letter.innerText).then(function () {
+      status.textContent = 'Скопировано.';
+    }, selectText);
+  } else {
+    selectText();
+  }
+});
+
+/* ===== Помощник «Проверь ситуацию» ===== */
+(function () {
+  var result = document.getElementById('result');
+  var emptyHtml = result.innerHTML;
+  var planShown = false;
+  var required = [
+    { name: 'where',   box: 'q1', title: '1. Где куплена вещь?' },
+    { name: 'said',    box: 'q2', title: '2. Утверждал ли продавец, что это оригинал?' },
+    { name: 'auth',    box: 'q4', title: '4. Что известно о подлинности?' },
+    { name: 'contact', box: 'q5', title: '5. Вы обращались к продавцу?' }
+  ];
+  var proofNames = {
+    receipt: 'чек или выписку об оплате',
+    ad: 'скриншот объявления или фото ценника',
+    chat: 'переписку с продавцом',
+    photo: 'фото вещи, бирок и упаковки'
+  };
+
+  function picked(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+  function step(title, text) {
+    return '<li><b>' + title + '</b>' + text + '</li>';
+  }
+  function show(html) {
+    result.classList.remove('is-empty');
+    result.innerHTML = '<h3>Ваш план действий</h3>' + html;
+    if (window.innerWidth < 800) result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.getElementById('planBtn').addEventListener('click', function () {
+    // 0) «частное лицо» — остальные вопросы для этого случая не нужны
+    if (picked('where') === 'private') {
+      required.forEach(function (q) { document.getElementById(q.box).classList.remove('missing'); });
+      planShown = true;
+      show('<div class="stop"><p><b>Закон «О защите прав потребителей» в этом случае не применяется.</b></p>' +
+        '<p style="margin:0">Закон защищает потребителя в отношениях с продавцом, который продаёт товар как предприниматель (ст. 1 п. 10 и п. 15). ' +
+        'При покупке у частного лица обратитесь к юристу, чтобы он оценил вашу ситуацию.</p></div>');
+      return;
+    }
+
+    // 1) проверка пропущенных вопросов
+    var missing = [];
+    required.forEach(function (q) {
+      var box = document.getElementById(q.box);
+      if (picked(q.name)) { box.classList.remove('missing'); }
+      else { box.classList.add('missing'); missing.push(q.title); }
+    });
+    if (missing.length) {
+      planShown = false;
+      show('<div class="error"><p><b>Ответьте, пожалуйста, на вопросы:</b></p><ul><li>' +
+        missing.join('</li><li>') + '</li></ul></div>');
+      return;
+    }
+
+    var where = picked('where'), said = picked('said'), auth = picked('auth'), contact = picked('contact');
+    var proofs = Array.prototype.map.call(document.querySelectorAll('input[name="proof"]:checked'), function (el) { return el.value; });
+
+    // 2) частное лицо — только предупреждение
+    if (where === 'private') {
+      show('<div class="stop"><p><b>Закон «О защите прав потребителей» в этом случае не применяется.</b></p>' +
+        '<p style="margin:0">Закон защищает потребителя в отношениях с продавцом, который продаёт товар как предприниматель (ст. 1 п. 10 и п. 15). ' +
+        'При покупке у частного лица обратитесь к юристу, чтобы он оценил вашу ситуацию.</p></div>');
+      return;
+    }
+
+    // 3) план действий
+    var s = [];
+    if (proofs.length === 0) {
+      s.push(step('Соберите доказательства',
+        'Найдите и сохраните: чек или выписку об оплате, скриншот объявления или фото ценника, переписку с продавцом, фото вещи, бирок и упаковки.'));
+    } else {
+      var lack = Object.keys(proofNames).filter(function (k) { return proofs.indexOf(k) === -1; });
+      s.push(step('Сохраните доказательства',
+        'Не выбрасывайте бирки и упаковку, сделайте копии документов.' +
+        (lack.length ? ' Постарайтесь также найти: ' + lack.map(function (k) { return proofNames[k]; }).join(', ') + '.' : '')));
+    }
+    if (said === 'oral') {
+      s.push(step('Найдите письменное подтверждение',
+        'Слова продавца «это оригинал» трудно доказать. Проверьте, как товар назван в чеке, на ценнике или в описании. <span class="law">ст. 10 п. 1</span>'));
+    } else if (said === 'no') {
+      // продавец не называл вещь оригиналом — не утверждаем, что информация недостоверна
+      s.push(step('Проверьте, как назван товар',
+        'Посмотрите, как товар назван в чеке, на ценнике и в описании. Если там указано, что это оригинал, ответьте «Да, письменно» в вопросе 2 и получите план заново. <span class="law">ст. 10 п. 1</span>'));
+      planShown = true;
+      show('<ol class="plan">' + s.join('') + '</ol><p class="small">Это справочный план, а не юридическое заключение.</p>');
+      return;
+    }
+    if (auth === 'suspect') {
+      s.push(step('Получите письменное заключение о подлинности',
+        'Обратитесь в официальный бутик бренда или к специалисту. Сайт BRAND SAFE не определяет, оригинальная ли вещь.'));
+    }
+    if (contact === 'no') {
+      s.push(step('Направьте продавцу претензию',
+        'Потребуйте расторгнуть договор и возместить убытки. Вручите претензию лично или отправьте заказным письмом с уведомлением о вручении. Шаблон — в разделе «Шаблон претензии». <span class="law">ст. 10 п. 2</span> <span class="law">ст. 42-4</span>'));
+      s.push(step('Дождитесь ответа',
+        'Если продавец не согласен, он должен дать письменный мотивированный ответ в течение десяти календарных дней со дня получения претензии. <span class="law">ст. 42-4</span>'));
+    } else if (contact === 'wait') {
+      s.push(step('Дождитесь ответа',
+        'Если продавец не согласен, он должен дать письменный мотивированный ответ в течение десяти календарных дней со дня получения претензии. Сохраните подтверждение, что продавец получил претензию. <span class="law">ст. 42-4</span>'));
+      s.push(step('Если ответа нет или продавец отказал',
+        'Вы сможете обратиться в Комитет по защите прав потребителей через eOtinish или в суд. <span class="law">ст. 42-4</span>'));
+    } else {
+      s.push(step('Обратитесь в госорган через eOtinish',
+        'Подайте обращение в Комитет по защите прав потребителей Министерства торговли и интеграции РК или его департамент в вашем регионе через <a href="https://eotinish.kz" target="_blank" rel="noopener">eotinish.kz</a>. Приложите претензию и доказательства. <span class="law">ст. 42-4</span>'));
+      s.push(step('Обратитесь в суд',
+        'Каждый человек имеет право на судебную защиту своих прав и свобод. Перед этим стоит проконсультироваться с юристом. <span class="law">Конституция, ст. 12 п. 2</span>'));
+    }
+    planShown = true;
+    show('<ol class="plan">' + s.join('') + '</ol><p class="small">Это справочный план, а не юридическое заключение.</p>');
+  });
+
+  // ответы изменились после показа плана — предупреждаем, что план устарел
+  document.getElementById('questions').addEventListener('change', function () {
+    if (!planShown || document.getElementById('staleHint')) return;
+    result.insertAdjacentHTML('afterbegin', '<div class="error" id="staleHint"><p style="margin:0"><b>Ответы изменились — нажмите «Получить план действий» ещё раз.</b></p></div>');
+    var note = document.getElementById('claimNote');
+    if (note) { note.textContent = 'Ответы изменились — нажмите «Получить план действий» ещё раз, чтобы обновить претензию.'; note.classList.remove('ready'); }
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    document.querySelectorAll('#questions input').forEach(function (el) { el.checked = false; });
+    required.forEach(function (q) { document.getElementById(q.box).classList.remove('missing'); });
+    result.innerHTML = emptyHtml;
+    result.classList.add('is-empty');
+    planShown = false;
+    document.getElementById('check').scrollIntoView({ behavior: 'smooth' });
+  });
+})();
+
+/* ===== Шаблон претензии: подстраивается под ответы помощника ===== */
+(function () {
+  var letter = document.getElementById('letter');
+  var note = document.getElementById('claimNote');
+  var copyBtn = document.getElementById('copyBtn');
+  var genericText = letter.textContent;
+  var genericNote = note.textContent;
+
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function show(text) {
+    letter.classList.remove('stopped');
+    letter.innerHTML = esc(text).replace(/\[[^\]]+\]/g, function (m) { return '<mark>' + m + '</mark>'; });
+    copyBtn.disabled = false;
+  }
+  function picked(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+  var proofDocs = {
+    receipt: 'Копия чека или выписки об оплате.',
+    ad: 'Скриншот объявления или фото ценника.',
+    chat: 'Скриншоты переписки с продавцом.',
+    photo: 'Фотографии товара, бирок и упаковки.'
+  };
+
+  function build(where, said, auth, proofs) {
+    var place = where === 'online'
+      ? 'в интернет-магазине / у продавца на маркетплейсе [название, адрес страницы]'
+      : 'в магазине по адресу [адрес]';
+    var claim = said === 'written' ? 'При продаже товар был заявлен как оригинальный: [где указано — ценник, описание, чек, переписка].'
+      : said === 'oral' ? 'При продаже продавец заверил меня, что товар является оригинальным.'
+      : '[Опишите, из чего следовало, что товар продаётся как оригинальный.]';
+    var authText = auth === 'confirmed'
+      ? 'По заключению [кто проверял — бутик бренда или специалист] от [дата] товар не является оригинальной продукцией бренда [название бренда].'
+      : 'У меня есть основания полагать, что товар не является оригинальной продукцией бренда [название бренда]: [опишите признаки].';
+    var docs = proofs.map(function (k) { return proofDocs[k]; });
+    if (auth === 'confirmed') docs.push('Копия заключения о подлинности.');
+    var list = docs.length ? docs.map(function (d, i) { return (i + 1) + '. ' + d; }).join('\n') : '[Перечислите документы.]';
+    return 'Кому: [название продавца — ИП или ТОО]\n' +
+      'Адрес: [адрес продавца]\n' +
+      'От: [ваше ФИО]\n' +
+      'Контакты для ответа: [ваш телефон или e-mail]\n\n' +
+      'ПРЕТЕНЗИЯ\n\n' +
+      '[Дата покупки] я купил(а) ' + place + ' товар: [название, модель, цвет] за [сумма] тенге. Покупку подтверждает [чек / выписка об оплате].\n\n' +
+      claim + '\n\n' + authText + '\n\n' +
+      'Таким образом, мне была предоставлена недостоверная информация о товаре. На основании пункта 2 статьи 10 Закона Республики Казахстан «О защите прав потребителей» прошу расторгнуть договор купли-продажи и возместить мои убытки в размере [сумма] тенге.\n\n' +
+      'В случае несогласия прошу дать письменный мотивированный ответ в течение десяти календарных дней со дня получения претензии (статья 42-4 Закона РК «О защите прав потребителей»).\n\n' +
+      'Приложения:\n' + list + '\n\n' +
+      '[Дата]          [Подпись]';
+  }
+
+  // общий шаблон при загрузке — с подсветкой пропусков
+  show(genericText);
+
+  document.getElementById('planBtn').addEventListener('click', function () {
+    var where = picked('where'), said = picked('said'), auth = picked('auth'), contact = picked('contact');
+    if (where !== 'private' && (!where || !said || !auth || !contact)) return; // помощник сам покажет пропущенные вопросы
+    if (where === 'private') {
+      letter.classList.add('stopped');
+      letter.innerHTML = '<b>Шаблон рассчитан на претензию магазину или ИП.</b> При покупке у частного лица Закон «О защите прав потребителей» не применяется — посмотрите план действий в разделе 2.';
+      note.textContent = 'Претензия по вашей ситуации не составляется.';
+      note.classList.remove('ready');
+      copyBtn.disabled = true;
+      return;
+    }
+    var proofs = Array.prototype.map.call(document.querySelectorAll('input[name="proof"]:checked'), function (el) { return el.value; });
+    show(build(where, said, auth, proofs));
+    note.textContent = said === 'no'
+      ? 'Сначала проверьте, как товар назван в чеке, на ценнике и в описании (см. план в разделе 2). Претензия имеет смысл, если продавец заявлял, что это оригинал.'
+      : 'Текст подстроен под ваши ответы в разделе 2. Заполните выделенные пропуски.';
+    note.classList.add('ready');
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    show(genericText);
+    note.textContent = genericNote;
+    note.classList.remove('ready');
+  });
+})();
+</script>
+</body>
+</html>
